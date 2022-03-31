@@ -2,9 +2,9 @@ import random
 import math
 import matplotlib.pyplot as plt
 
-T = 500
+T = 5000
 T_change = 0.99
-changes = 500
+changes = 50000
 counter = 0
 
 sudoku = [[-1 for _ in range(9)] for _ in range(9)]
