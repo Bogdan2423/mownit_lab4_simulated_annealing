@@ -2,9 +2,9 @@ import random
 import math
 import matplotlib.pyplot as plt
 
-T = 5000
+T = 5
 T_change = 0.99
-changes = 50000
+changes = 500
 counter = 0
 
 sudoku = [[-1 for _ in range(9)] for _ in range(9)]
@@ -59,6 +59,7 @@ for x,y in squares:
 
 for row in sudoku:
     print(row)
+print("\n\n")
 
 def calc_val(sudoku, duplicates_in_row, duplicates_in_col, row, col):
     already_in_row = [False for _ in range(9)]
@@ -83,8 +84,9 @@ val = sum(duplicates_in_row)+sum(duplicates_in_col)
 
 val_list=[]
 
-while val>0:
+while val>0 and counter<10000000:
     for i in range(changes):
+        print(counter,val)
         swapped=False
         x, y = squares[random.randint(0, 8)]
         a = random.randint(0,8)
@@ -127,7 +129,6 @@ while val>0:
 
         val_list.append(val)
         counter += 1
-        print(counter, val)
     T *= T_change
 
 for row in sudoku:
